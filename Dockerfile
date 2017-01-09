@@ -1,4 +1,4 @@
-FROM php:7.0-fpm
+FROM php:7.1-fpm
 
 MAINTAINER Tran Duc Thang <thangtd90@gmail.com>
 
