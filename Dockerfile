@@ -31,6 +31,7 @@ RUN pecl install mongodb \
 # Install extensions using the helper script provided by the base image
 RUN docker-php-ext-install \
     mcrypt \
+    bcmath \
     pdo_mysql \
     pdo_pgsql \
     gd \
