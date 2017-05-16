@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libmcrypt-dev \
     vim \
+    zlib1g-dev libicu-dev g++ \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
 
@@ -22,6 +23,9 @@ RUN docker-php-ext-configure gd \
     --enable-gd-native-ttf \
     --with-jpeg-dir=/usr/lib \
     --with-freetype-dir=/usr/include/freetype2
+
+# configure intl
+RUN docker-php-ext-configure intl
 
 # Install mongodb, xdebug
 RUN pecl install mongodb \
@@ -35,6 +39,7 @@ RUN docker-php-ext-install \
     pdo_mysql \
     pdo_pgsql \
     gd \
+    intl \
     zip
 
 RUN usermod -u 1000 www-data
